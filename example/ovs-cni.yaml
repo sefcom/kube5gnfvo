@@ -1,20 +1,22 @@
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: ovs-cni-amd64
-  namespace: kube-system
-  labels:
-    tier: node
-    app: ovs-cni
-spec:
+apiVersion: apps/v1	
+kind: DaemonSet	
+metadata:	
+  name: ovs-cni-amd64	
+  namespace: kube-system	
+  labels:	
+    tier: node	
+    app: ovs-cni	
+    name: ovs-cni	
+spec:	
   selector:
-    matchLabels:
-      app: ovs-cni
-  template:
-    metadata:
-      labels:
-        tier: node
-        app: ovs-cni
+    matchLabels:	
+      name: ovs-cni	
+  template:	
+    metadata:	
+      labels:	
+        tier: node	
+        app: ovs-cni	
+        name: ovs-cni
       annotations:
         description: OVS CNI allows users to attach their Pods/VMs to Open vSwitch bridges available on nodes
     spec:
